@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sri Harini D - Data Analyst Portfolio showcasing projects in Python, Power BI and Tableau.">
+  <title>Sri Harini D | Data Analyst Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #08111f;
+      --bg-light: #0d192b;
+      --card: #111f33;
+      --text: #f1f5f9;
+      --muted: #a9b7c9;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 17, 31, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(56,189,248,0.10), transparent 30%),
+        var(--bg);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      color: var(--muted);
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #06101d;
+    }
+
+    .btn-primary:hover {
+      background: #7dd3fc;
+    }
+
+    .btn-outline {
+      color: var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: rgba(56,189,248,0.08);
+    }
+
+    /* General */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    /* About */
+
+    .about-text {
+      max-width: 900px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .about-text p + p {
+      margin-top: 18px;
+    }
+
+    /* Skills */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .skill-card h3 {
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+    }
+
+    /* Projects */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .project-number {
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .tech {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Education */
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .education-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px;
+    }
+
+    .education-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    .year {
+      color: var(--accent) !important;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* Certifications */
+
+    .cert-list {
+      display: grid;
+      gap: 16px;
+      max-width: 900px;
+    }
+
+    .cert-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+
+    .cert-item h3 {
+      margin-bottom: 5px;
+    }
+
+    .cert-item p {
+      color: var(--muted);
+    }
+
+    /* Contact */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .nav-container {
+        padding: 15px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 100px 0;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#home" class="logo">Sri Harini D.</a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="container hero-content">
+
+      <p class="eyebrow">DATA ANALYST PORTFOLIO</p>
+
+      <h1>Sri Harini D</h1>
+
+      <h2>Aspiring Data Analyst</h2>
+
+      <p>
+        Mathematics postgraduate with hands-on experience in data analysis,
+        visualization, and dashboard development. I use Python, SQL, Excel,
+        Power BI, and Tableau to transform data into meaningful insights.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+
+        <a href="https://www.linkedin.com/in/sri-harini-d"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-outline">
+          LinkedIn
+        </a>
+
+        <a href="https://github.com/sriharini1744"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-outline">
+          GitHub
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+
+        <h2 class="section-title"><span>01.</span> About Me</h2>
+
+        <div class="about-text">
+          <p>
+            I am an aspiring Data Analyst with a postgraduate background in
+            Mathematics and a strong interest in turning raw data into
+            understandable and actionable insights.
+          </p>
+
+          <p>
+            Through hands-on projects, I have worked with Python for exploratory
+            data analysis, Power BI for interactive business dashboards, and
+            Tableau for data visualization and storytelling. I am continuously
+            strengthening my analytical and business intelligence skills while
+            building practical projects.
+          </p>
+
+          <p>
+            I am currently exploring opportunities in Data Analytics and MIS
+            where I can apply analytical thinking, problem solving, and
+            data-driven decision making.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+
+        <h2 class="section-title"><span>02.</span> Skills & Tools</h2>
+
+        <p class="section-intro">
+          Technologies and analytical tools I use for data preparation,
+          analysis, visualization, and reporting.
+        </p>
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <h3>Data Analysis</h3>
+            <p>Python · SQL · Microsoft Excel</p>
+          </div>
+
+          <div class="skill-card">
+            <h3>Python Libraries</h3>
+            <p>Pandas · NumPy · Matplotlib · Seaborn</p>
+          </div>
+
+          <div class="skill-card">
+            <h3>Business Intelligence</h3>
+            <p>Power BI · Power Query · DAX · Data Modeling</p>
+          </div>
+
+          <div class="skill-card">
+            <h3>Visualization</h3>
+            <p>Tableau · Interactive Dashboards · Data Storytelling</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+
+        <h2 class="section-title"><span>03.</span> Featured Projects</h2>
+
+        <p class="section-intro">
+          Selected hands-on projects demonstrating my experience across
+          Python, Power BI, and Tableau.
+        </p>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 01 · PYTHON</div>
+
+            <h3>Spotify Customer Churn Analysis</h3>
+
+            <p>
+              Explored customer behaviour and churn patterns using Python and
+              exploratory data analysis to identify customer segments and
+              factors associated with churn.
+            </p>
+
+            <div class="tech">
+              Python · Pandas · NumPy · Matplotlib · Seaborn
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/sriharini1744/spotify-customer-churn-analysis"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Project →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 02 · POWER BI</div>
+
+            <h3>IPL Performance Dashboard</h3>
+
+            <p>
+              Built an interactive Power BI dashboard to analyze IPL match
+              performance, leading run scorers, wicket takers, team wins,
+              toss decisions, seasons, and match locations.
+            </p>
+
+            <div class="tech">
+              Power BI · Power Query · DAX · Data Modeling
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/sriharini1744/ipl-performance-dashboard"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Project →
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">PROJECT 03 · TABLEAU</div>
+
+            <h3>India Air Passenger Traffic Analysis</h3>
+
+            <p>
+              Analyzed India's domestic air passenger traffic from 2019–2023
+              using an interactive Tableau dashboard and story covering traffic
+              trends, state rankings, geographic distribution, and growth.
+            </p>
+
+            <div class="tech">
+              Tableau · Data Visualization · Geographic Analysis · Data Storytelling
+            </div>
+
+            <a class="project-link"
+               href="https://github.com/sriharini1744/india-air-passenger-traffic-analysis"
+               target="_blank"
+               rel="noopener noreferrer">
+              View Project →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="container">
+
+        <h2 class="section-title"><span>04.</span> Education</h2>
+
+        <div class="education-grid">
+
+          <div class="education-card">
+            <h3>M.Sc. Mathematics</h3>
+            <p>DG Vaishnav College, Chennai</p>
+            <p class="year">2026</p>
+          </div>
+
+          <div class="education-card">
+            <h3>B.Sc. Mathematics</h3>
+            <p>DRBCCC Hindu College, Pattabiram</p>
+            <p class="year">2024</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+      <div class="container">
+
+        <h2 class="section-title"><span>05.</span> Certifications</h2>
+
+        <p class="section-intro">
+          Selected certifications and learning achievements supporting my
+          data analytics journey.
+        </p>
+
+        <div class="cert-list">
+
+          <div class="cert-item">
+            <h3>Python Project Certificate</h3>
+            <p>Brand Monk Academy</p>
+          </div>
+
+          <div class="cert-item">
+            <h3>SQL (Basic)</h3>
+            <p>HackerRank</p>
+          </div>
+
+          <div class="cert-item">
+            <h3>Python (Basic)</h3>
+            <p>HackerRank</p>
+          </div>
+
+          <div class="cert-item">
+            <h3>Behind the Screens: Netflix Data Analytics with Power BI</h3>
+            <p>NoviTech R&amp;D Pvt. Ltd. · 2026</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+
+        <h2 class="section-title"><span>06.</span> Let's Connect</h2>
+
+        <p class="section-intro">
+          I am interested in opportunities in Data Analytics and MIS.
+          Feel free to connect with me through LinkedIn or explore my work on GitHub.
+        </p>
+
+        <div class="contact-links">
+
+          <a href="https://www.linkedin.com/in/sri-harini-d"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-primary">
+            LinkedIn
+          </a>
+
+          <a href="https://github.com/sriharini1744"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-outline">
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Sri Harini D · Data Analyst Portfolio
+  </footer>
+
+</body>
+</html>
