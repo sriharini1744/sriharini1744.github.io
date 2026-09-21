@@ -240,6 +240,17 @@
       transition: transform 0.2s, border-color 0.2s;
     }
 
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 9px;
+      margin-bottom: 22px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+
     .project-card:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
@@ -521,6 +532,7 @@
         <div class="projects-grid">
 
           <article class="project-card">
+            <img src="spotify-churn-analysis.png" alt="Spotify Customer Churn Analysis visualization" class="project-image">
             <div class="project-number">PROJECT 01 · PYTHON</div>
 
             <h3>Spotify Customer Churn Analysis</h3>
@@ -544,6 +556,7 @@
           </article>
 
           <article class="project-card">
+            <img src="ipl-dashboard.png" alt="IPL Performance Power BI Dashboard" class="project-image">
             <div class="project-number">PROJECT 02 · POWER BI</div>
 
             <h3>IPL Performance Dashboard</h3>
@@ -567,6 +580,7 @@
           </article>
 
           <article class="project-card">
+            <img src="tableau-dashboard.png" alt="India Air Passenger Traffic Tableau Dashboard" class="project-image">
             <div class="project-number">PROJECT 03 · TABLEAU</div>
 
             <h3>India Air Passenger Traffic Analysis</h3>
