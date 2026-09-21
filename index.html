@@ -322,8 +322,8 @@
 
     .cert-list {
       display: grid;
-      gap: 16px;
-      max-width: 900px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .cert-item {
@@ -368,6 +368,9 @@
     }
 
     @media (max-width: 700px) {
+      .cert-list {
+        grid-template-columns: 1fr;
+      }
       .nav-container {
         padding: 15px 0;
         align-items: flex-start;
